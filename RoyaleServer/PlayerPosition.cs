@@ -8,22 +8,31 @@ namespace RoyaleServer
 {
     class PlayerPosition
     {
-        private float m_Pitch { get; set; } = 0.0f;
-        private float m_Yaw { get; set; } = 0.0f;
+        public float m_Pitch { get; set; } = 0.0f;
+        public float m_Yaw { get; set; } = 0.0f;
 
-        private float m_PlayerX { get; set; } = 0.0f;
-        private float m_PlayerY { get; set; } = 0.0f;
-        private float m_PlayerZ { get; set; } = 0.0f;
+        public float m_PlayerX { get; set; } = 0.0f;
+        public float m_PlayerY { get; set; } = 0.0f;
+        public float m_PlayerZ { get; set; } = 0.0f;
 
-        public PlayerPosition()
+        public PlayerPosition(float x = 0.0f, float y = 0.0f, float z = 0.0f)
         {
             Debug.LogInfo("Constructed new PlayerPosition object");
+
+            // Setting initial location for Player's position
+            m_PlayerX = x;
+            m_PlayerY = y;
+            m_PlayerZ = z;
         }
 
-        public static bool isInRedZone(float y, float x, float z)
+        public void ChangePitch(float newPitch)
+        {
+            // TODO: Implement(lol)
+        }
+
+        public void ChangeYaw(float newYaw)
         {
             // TODO: Implement
-            return false;
         }
     }
 }

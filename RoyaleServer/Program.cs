@@ -12,6 +12,7 @@ namespace RoyaleServer
         static void Main(string[] args)
         {
             PlayerPosition randomPlayer = new PlayerPosition();
+            Console.ReadLine(); // remove me idiot
         }
     }
 }
