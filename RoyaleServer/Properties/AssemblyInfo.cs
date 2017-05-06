@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RoyaleServer")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Game Server for Hex's Battle Royale game.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Banger Listeners")]
 [assembly: AssemblyProduct("RoyaleServer")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
