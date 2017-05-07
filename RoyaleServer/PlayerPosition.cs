@@ -27,7 +27,7 @@ namespace RoyaleServer
 
         public void ChangePitch(float newPitch)
         {
-            // TODO: Implement(lol)
+            // TODO: Implement
         }
 
         public void ChangeYaw(float newYaw)

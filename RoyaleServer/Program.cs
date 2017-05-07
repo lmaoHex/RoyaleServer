@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoyaleServer.Network;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,9 @@ namespace RoyaleServer
     {
         static void Main(string[] args)
         {
-            PlayerPosition randomPlayer = new PlayerPosition();
+            PlayerPosition RandomPlayer = new PlayerPosition();
+            SocketListener Server = new SocketListener();
+
             Console.ReadLine(); // remove me idiot
         }
     }
