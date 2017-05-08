@@ -12,25 +12,18 @@ namespace RoyaleServer
         private string m_Username { get; set; } = "AnonymousPlayer";
         private float m_Health { get; set; } = 100.0f;
         private float m_Speed { get; set; } = 5.0f; // Run speed
-        private PlayerPosition m_Position { get; set; } = new PlayerPosition();
 
         private float m_JumpHeight { get; set; } = 1.0f;
         private bool m_FreeFall { get; set; } = false;
         private DateTime m_LastJumped { get; set; } = DateTime.Now;
+        private PlayerPosition m_Position { get; set; }
 
-
-        public Player(
-            string username,
-            float health,
-            float speed,
-            PlayerPosition position)
+        public Player(string username, PlayerPosition position)
         {
             Debug.LogInfo("Constructed new Player object");
 
             // Setting initial values for Player
             m_Username = username;
-            m_Health = health;
-            m_Speed = speed;
             m_Position = position;
         }
 

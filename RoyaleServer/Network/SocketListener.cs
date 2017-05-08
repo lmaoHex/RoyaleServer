@@ -1,29 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Net;
+using System.Threading;
 using System.Net.Sockets;
+using System;
+using System.Threading.Tasks;
 
 namespace RoyaleServer.Network
 {
     class SocketListener
     {
-        private const int PORT = 5000;
-        private const int MAX_CLIENTS = 90;
-        private static int ClientCount = 0;
-        public List<TcpClient> ConnectedClients = new List<TcpClient>();
-
         private static IPAddress LocalAddr;
         private static TcpListener TcpServer;
+        private Byte[] bytes = new Byte[256];
+        public List<TcpClient> ConnectedClients = new List<TcpClient>();
+        public List<Thread> PlayerThreads = new List<Thread>();
 
 
-        public SocketListener()
+        public SocketListener(int port)
         {
 #pragma warning disable CS0618 // Type or member is obsolete
             LocalAddr = Dns.Resolve("localhost").AddressList[0];
-            TcpServer = new TcpListener(LocalAddr, PORT);
+            TcpServer = new TcpListener(LocalAddr, port);
+#pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        public async void Start()
+        {
             TcpServer.Start();
 
             while (true)
@@ -31,9 +33,18 @@ namespace RoyaleServer.Network
                 TcpClient ConnectingUser = TcpServer.AcceptTcpClient();
                 Debug.LogInfo($"User {ConnectingUser.Client.RemoteEndPoint} connected");
                 ConnectedClients.Add(ConnectingUser);
-            }
-#pragma warning restore CS0618 // Type or member is obsolete
 
+                PlayerAsync(ConnectingUser);
+            }
+        }
+
+        private async Task PlayerAsync(TcpClient player)
+        {
+            int i;
+            while ((i = player.GetStream().Read(bytes, 0, bytes.Length)) != 0)
+            {
+                Debug.LogInfo(System.Text.Encoding.ASCII.GetString(bytes, 0, i));
+            }
         }
     }
 }
