@@ -10,20 +10,15 @@ namespace RoyaleServer
     class Debug
     {
         public static string m_LogPath = @"ROYALE_LOG.txt";
-        
-        public static void LogError(string toLog)
-        {
-            Log(toLog, "ERROR");
-        }
 
-        public static void LogWarning(string toLog)
-        {
+        public static void LogError(string toLog) =>
+            Log(toLog, "ERROR");
+
+        public static void LogWarning(string toLog) =>
             Log(toLog, "WARNING");
-        }
-        public static void LogInfo(string toLog)
-        {
+
+        public static void LogInfo(string toLog) =>
             Log(toLog, "INFO");
-        }
 
         public static void Log(string toLog, string logType)
         {

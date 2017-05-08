@@ -1,15 +1,14 @@
 ﻿using RoyaleServer.Network;
+using RoyaleServer.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RoyaleServer
 {
 
     class Royale
     {
+        public static Store Database = new Store("ROYALE_TEST_DATA");
+
         static void Main(string[] args)
         {
             PlayerPosition RandomPlayer = new PlayerPosition();

@@ -45,7 +45,7 @@ namespace RoyaleServer
         }
 
         /// <summary>
-        /// Compares current time to player's lastJumped timestamp.
+        /// Compares current time to player's lastJumped timestamp. (1 second between each jump)
         /// </summary>
         /// <returns>True/false depending on whether or not the player should be able jump.</returns>
         private bool CanJump()
@@ -58,7 +58,7 @@ namespace RoyaleServer
 
         private bool isInRedZone(float y, float x, float z)
         {
-            // TODO: Implement (lol)
+            // TODO: Implement
             return false;
         }
     }
