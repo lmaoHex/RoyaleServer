@@ -4,6 +4,8 @@ using System.Threading;
 using System.Net.Sockets;
 using System;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace RoyaleServer.Network
 {
@@ -14,7 +16,7 @@ namespace RoyaleServer.Network
         private Byte[] bytes = new Byte[256];
         public List<TcpClient> ConnectedClients = new List<TcpClient>();
         public List<Thread> PlayerThreads = new List<Thread>();
-
+        private StringComparison t;
 
         public SocketListener(int port)
         {
@@ -24,7 +26,7 @@ namespace RoyaleServer.Network
 #pragma warning restore CS0618 // Type or member is obsolete
         }
 
-        public async void Start()
+        public void Start()
         {
             TcpServer.Start();
 
@@ -41,9 +43,20 @@ namespace RoyaleServer.Network
         private async Task PlayerAsync(TcpClient player)
         {
             int i;
+            string data;
+            bool validUser;
+            JObject authData;
+
             while ((i = player.GetStream().Read(bytes, 0, bytes.Length)) != 0)
             {
-                Debug.LogInfo(System.Text.Encoding.ASCII.GetString(bytes, 0, i));
+                data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
+                authData = JObject.Parse(data);
+
+                validUser = Auth.Login(authData.GetValue("username"), authData.GetValue("password"));
+                if (validUser)
+                {
+                    // complete login process
+                }
             }
         }
     }

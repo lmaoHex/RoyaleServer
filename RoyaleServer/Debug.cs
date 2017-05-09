@@ -36,5 +36,10 @@ namespace RoyaleServer
         {
             return value.ToString("MM/dd/yy HH:mm:ss");
         }
+
+        internal static void LogInfo(object username)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
