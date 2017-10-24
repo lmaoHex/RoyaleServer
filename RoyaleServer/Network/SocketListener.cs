@@ -16,7 +16,7 @@ namespace RoyaleServer.Network
         private Byte[] bytes = new Byte[256];
         public List<TcpClient> ConnectedClients = new List<TcpClient>();
         public List<Thread> PlayerThreads = new List<Thread>();
-        private StringComparison t;
+
 
         public SocketListener(int port)
         {
@@ -36,11 +36,11 @@ namespace RoyaleServer.Network
                 Debug.LogInfo($"User {ConnectingUser.Client.RemoteEndPoint} connected");
                 ConnectedClients.Add(ConnectingUser);
 
-                PlayerAsync(ConnectingUser);
+                Player(ConnectingUser);
             }
         }
 
-        private async Task PlayerAsync(TcpClient player)
+        private void Player(TcpClient player)
         {
             int i;
             string data;

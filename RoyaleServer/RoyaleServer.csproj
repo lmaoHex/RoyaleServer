@@ -67,6 +67,7 @@
     <Compile Include="Debug.cs" />
     <Compile Include="Items\Item.cs" />
     <Compile Include="Items\ItemType.cs" />
+    <Compile Include="Items\Scar.cs" />
     <Compile Include="Network\Auth.cs" />
     <Compile Include="Network\SocketListener.cs" />
     <Compile Include="Player.cs" />

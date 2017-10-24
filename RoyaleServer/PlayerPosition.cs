@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RoyaleServer.Items;
 
 namespace RoyaleServer
 {
@@ -18,6 +14,7 @@ namespace RoyaleServer
         public PlayerPosition(float x = 0.0f, float y = 0.0f, float z = 0.0f)
         {
             Debug.LogInfo("Constructed new PlayerPosition object");
+            Scar test = new Scar();
 
             // Setting initial location for Player's position
             m_PlayerX = x;
